@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yhteystiedot – PlanDisain</title>
-  <meta name="description" content="Ota yhteyttä PlanDisainiin — info@plandisain.fi" />
+  <meta name="description" content="Ota yhteyttä PlanDisainiin — markus.hytonen@plandisain.fi" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo"><img src="logo.webp" alt="PlanDisain"></a>
+      <a href="index.html" class="logo"><img id="site-logo" src="logo-pd-transparent.png" alt="PlanDisain"></a>
       <nav class="main-nav" aria-label="Päänavigaatio">
         <a href="index.html#palvelut">Palvelut</a>
         <a href="yritys.html">Yritys</a>
@@ -22,9 +22,6 @@
 
   <main>
     <section class="page-hero">
-      <div class="hero-map-deco" aria-hidden="true">
-        <img src="ruots_rv.png" alt="">
-      </div>
       <div class="container">
         <p class="eyebrow">Yhteystiedot</p>
         <h1>Ota yhteyttä</h1>
@@ -36,65 +33,25 @@
 
     <section class="section">
       <div class="container">
-        <div class="contact-grid">
-
-          <div class="contact-info-block">
-            <div class="contact-item">
-              <h3>Sähköposti</h3>
-              <p><a href="mailto:info@plandisain.fi">info@plandisain.fi</a></p>
-            </div>
-
-            <div class="contact-item">
-              <h3>Verkkosivut</h3>
-              <p><a href="https://www.plandisain.fi" target="_blank" rel="noopener">www.plandisain.fi</a></p>
-            </div>
-
-            <div class="contact-item">
-              <h3>Palvelut</h3>
-              <ul class="feature-list" style="margin-top: var(--space-2);">
-                <li>Kaavoitus</li>
-                <li>Kehittäminen ja digitalisaatio</li>
-                <li>Vuorovaikutus</li>
-              </ul>
-            </div>
+        <div class="contact-info-block">
+          <div class="contact-item">
+            <h3>Sähköposti</h3>
+            <p><a href="mailto:markus.hytonen@plandisain.fi">markus.hytonen@plandisain.fi</a></p>
           </div>
 
-          <div>
-            <div class="section-heading" style="margin-bottom: var(--space-4);">
-              <p class="section-kicker">Yhteydenottolomake</p>
-              <h2 style="font-size: 1.8rem;">Lähetä viesti</h2>
-            </div>
-
-            <form action="mailto:info@plandisain.fi" method="post" enctype="text/plain">
-              <div class="form-group">
-                <label for="nimi">Nimi</label>
-                <input type="text" id="nimi" name="nimi" placeholder="Etunimi Sukunimi" required />
-              </div>
-
-              <div class="form-group">
-                <label for="sahkoposti">Sähköposti</label>
-                <input type="email" id="sahkoposti" name="sahkoposti" placeholder="nimi@organisaatio.fi" required />
-              </div>
-
-              <div class="form-group">
-                <label for="aihe">Aihe</label>
-                <input type="text" id="aihe" name="aihe" placeholder="Mistä asiasta on kyse?" />
-              </div>
-
-              <div class="form-group">
-                <label for="viesti">Viesti</label>
-                <textarea id="viesti" name="viesti" placeholder="Kerro lyhyesti projektistasi tai kysymyksestäsi..." required></textarea>
-              </div>
-
-              <button type="submit" class="button-secondary">Lähetä viesti</button>
-
-              <p class="form-note">
-                Lomake avaa sähköpostiohjelmasi. Voit myös kirjoittaa suoraan osoitteeseen
-                <a href="mailto:info@plandisain.fi">info@plandisain.fi</a>.
-              </p>
-            </form>
+          <div class="contact-item">
+            <h3>Verkkosivut</h3>
+            <p><a href="https://www.plandisain.fi" target="_blank" rel="noopener">www.plandisain.fi</a></p>
           </div>
 
+          <div class="contact-item">
+            <h3>Palvelut</h3>
+            <ul class="feature-list" style="margin-top: var(--space-2);">
+              <li>Kaavoitus</li>
+              <li>Kehittäminen ja digitalisaatio</li>
+              <li>Vuorovaikutus</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -105,5 +62,16 @@
       <p>© PlanDisain</p>
     </div>
   </footer>
+  <script>
+    const header = document.querySelector('.site-header');
+    const logo = document.getElementById('site-logo');
+    const hero = document.querySelector('.page-hero');
+    window.addEventListener('scroll', () => {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const overWhite = heroBottom <= header.offsetHeight;
+      header.classList.toggle('scrolled', overWhite);
+      logo.src = overWhite ? 'logo-pd.png' : 'logo-pd-transparent.png';
+    });
+  </script>
 </body>
 </html>

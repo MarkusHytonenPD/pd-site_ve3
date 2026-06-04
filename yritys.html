@@ -10,7 +10,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo"><img src="logo.webp" alt="PlanDisain"></a>
+      <a href="index.html" class="logo"><img id="site-logo" src="logo-pd-transparent.png" alt="PlanDisain"></a>
       <nav class="main-nav" aria-label="Päänavigaatio">
         <a href="index.html#palvelut">Palvelut</a>
         <a href="yritys.html" aria-current="page">Yritys</a>
@@ -22,9 +22,6 @@
 
   <main>
     <section class="page-hero">
-      <div class="hero-map-deco" aria-hidden="true">
-        <img src="ruots_rv.png" alt="">
-      </div>
       <div class="container">
         <p class="eyebrow">Yritys</p>
         <h1>Kokemus, joka näkyy laadussa</h1>
@@ -161,5 +158,16 @@
       <p>© PlanDisain</p>
     </div>
   </footer>
+  <script>
+    const header = document.querySelector('.site-header');
+    const logo = document.getElementById('site-logo');
+    const hero = document.querySelector('.page-hero');
+    window.addEventListener('scroll', () => {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const overWhite = heroBottom <= header.offsetHeight;
+      header.classList.toggle('scrolled', overWhite);
+      logo.src = overWhite ? 'logo-pd.png' : 'logo-pd-transparent.png';
+    });
+  </script>
 </body>
 </html>

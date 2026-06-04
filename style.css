@@ -1,7 +1,7 @@
 :root {
-  --color-primary: #15324a;
-  --color-primary-dark: #102638;
-  --color-accent: #7fa6c3;
+  --color-primary: #0e2841;
+  --color-primary-dark: #091929;
+  --color-accent: #3cc3cd;
   --color-bg: #f4f7f9;
   --color-surface: #ffffff;
   --color-surface-soft: #edf3f6;
@@ -60,9 +60,16 @@ a {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.site-header.scrolled {
   background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(8px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
@@ -84,9 +91,10 @@ a {
 }
 
 .logo img {
-  height: 44px;
+  height: 80px;
   width: auto;
   display: block;
+  opacity: 0.75;
 }
 
 .main-nav {
@@ -97,7 +105,7 @@ a {
 
 .main-nav a {
   text-decoration: none;
-  color: #00c8e0;
+  color: #3cc3cd;
   font-weight: 500;
   font-size: 0.98rem;
 }
@@ -110,12 +118,13 @@ a {
 
 .hero {
   background:
-    linear-gradient(180deg, rgba(0, 31, 63, 0.85), rgba(0, 31, 63, 0.90)),
-    linear-gradient(120deg, #0d2b4e, #001f3f 50%, #001229);
+    linear-gradient(180deg, rgba(14, 40, 65, 0.55), rgba(14, 40, 65, 0.65)),
+    url('hero-koivikko.png') center 62% / cover no-repeat;
   color: #fff;
-  padding: 7rem 0 6rem;
+  padding: calc(4rem + 76px) 0 6rem;
   position: relative;
   overflow: hidden;
+  margin-top: -76px;
 }
 
 .hero-map-deco {
@@ -148,7 +157,9 @@ a {
 
 
 .hero-content {
-  max-width: 760px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .eyebrow {
@@ -164,16 +175,23 @@ a {
   margin: 0 0 var(--space-3);
   font-size: clamp(3.6rem, 7.5vw, 6.6rem);
   line-height: 1.05;
-  color: #00c8e0;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 300;
-  letter-spacing: -0.04em;
+  color: #ffffff;
+  font-family: 'Gelasio', 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 .hero-title-group {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 6rem;
+}
+
+.hero-logo {
+  width: 220px;
+  height: auto;
+  margin-top: 1.5rem;
 }
 
 .hero-tagline {
@@ -235,7 +253,9 @@ a {
   margin: 0;
   font-size: clamp(1.9rem, 3vw, 2.8rem);
   line-height: 1.15;
-  color: var(--color-primary);
+  color: #3cc3cd;
+  font-family: 'Gelasio', serif;
+  font-weight: 600;
   max-width: 760px;
 }
 
@@ -276,7 +296,8 @@ a {
 .reference-card h3 {
   margin-top: 0;
   margin-bottom: var(--space-3);
-  color: var(--color-primary);
+  color: #3cc3cd;
+  font-family: 'Gelasio', serif;
   font-size: 1.2rem;
 }
 
@@ -319,18 +340,54 @@ a {
 
 .site-footer {
   margin-top: var(--space-7);
-  background: var(--color-primary-dark);
+  background:
+    linear-gradient(180deg, rgba(14, 40, 65, 0.55), rgba(14, 40, 65, 0.65)),
+    url('footer-koivikko2.png') center bottom / cover no-repeat;
   color: rgba(255, 255, 255, 0.88);
 }
 
 .footer-inner {
-  min-height: 72px;
+  min-height: 340px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--space-5);
+  padding: var(--space-8) 0;
+  text-align: right;
 }
 
-.footer-inner p {
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer-kicker {
   margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3cc3cd;
+}
+
+.footer-heading {
+  margin: 0 0 var(--space-3);
+  font-family: 'Gelasio', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: #fff;
+}
+
+.footer-contact p {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 @media (max-width: 900px) {
@@ -606,10 +663,11 @@ a {
 
 .page-hero {
   background:
-    linear-gradient(180deg, rgba(16, 38, 56, 0.88), rgba(16, 38, 56, 0.92)),
-    linear-gradient(120deg, #43617a, #27455e 50%, #19354d);
+    linear-gradient(180deg, rgba(14, 40, 65, 0.60), rgba(14, 40, 65, 0.70)),
+    url('hero-koivikko.png') center 62% / cover no-repeat;
   color: #fff;
-  padding: 4.5rem 0 3.5rem;
+  padding: calc(4.5rem + 76px) 0 3.5rem;
+  margin-top: -76px;
   position: relative;
   overflow: hidden;
 }
@@ -851,6 +909,68 @@ a {
   font-size: 0.83rem;
   color: var(--color-text-soft);
   margin-top: var(--space-3);
+}
+
+.project-ref-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.project-ref-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.project-ref-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(16, 38, 56, 0.12);
+}
+
+.project-ref-card .ref-category-label {
+  margin-bottom: var(--space-2);
+}
+
+.project-ref-card h3 {
+  margin: 0 0 var(--space-2);
+  font-family: 'Gelasio', serif;
+  font-size: 1.05rem;
+  color: #3cc3cd;
+  line-height: 1.3;
+}
+
+.project-ref-card .project-kunta {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+  margin: 0 0 var(--space-2);
+}
+
+.project-ref-card .project-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+  margin: 0 0 var(--space-3);
+  flex: 1;
+}
+
+.project-ref-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+@media (max-width: 900px) {
+  .project-ref-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {

@@ -10,7 +10,7 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo"><img src="logo.webp" alt="PlanDisain"></a>
+      <a href="index.html" class="logo"><img id="site-logo" src="logo-pd-transparent.png" alt="PlanDisain"></a>
       <nav class="main-nav" aria-label="Päänavigaatio">
         <a href="index.html#palvelut">Palvelut</a>
         <a href="yritys.html">Yritys</a>
@@ -22,9 +22,6 @@
 
   <main>
     <section class="page-hero">
-      <div class="hero-map-deco" aria-hidden="true">
-        <img src="ruots_rv.png" alt="">
-      </div>
       <div class="container">
         <p class="eyebrow">Referenssit</p>
         <h1>Yli 50 kaavaa, yli 30 kuntaa, yli 3 500 km rantaviivaa</h1>
@@ -48,15 +45,6 @@
               erillisiä järviä kaavoissa yli 500 kpl. Muiden laatimia kaavoja
               muutettu noin 2 000 km:n edestä.
             </p>
-            <ul class="ref-list">
-              <li>Pyhäjärven rantayleiskaava</li>
-              <li>Tahiniemi–Länsiväylä yleiskaavamuutos</li>
-              <li>Ruotsalaisen rantaosayleiskaava</li>
-              <li>Heinäveden itäisten alueiden rantayleiskaavamuutos</li>
-              <li>Kyrsyän rantaosayleiskaava</li>
-              <li>Suursaimaan OYK</li>
-              <li>Heinäveden läntisten alueiden RYK</li>
-            </ul>
           </div>
 
           <div class="ref-category">
@@ -97,6 +85,82 @@
       </div>
     </section>
 
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="section-kicker">Projekti-sivustot</p>
+          <h2>Valmistuneet yleiskaavahankkeet</h2>
+        </div>
+
+        <div class="project-ref-grid">
+
+          <a class="project-ref-card" href="pyhajarvi.html">
+            <span class="ref-category-label">Rantaosayleiskaava</span>
+            <h3>Pyhäjärven rantaosayleiskaava</h3>
+            <p class="project-kunta">Pieksämäki</p>
+            <p class="project-desc">Pyhäjärven ranta-alueiden maankäytön suunnittelu. Valtuusto hyväksyi 12.5.2025.</p>
+            <span class="status-badge status-lainvoimainen">Lainvoimainen</span>
+            <span class="project-ref-link" style="margin-top:1rem;">Avaa projekti-sivusto →</span>
+          </a>
+
+          <a class="project-ref-card" href="tahiniemi.html">
+            <span class="ref-category-label">Osayleiskaavamuutos</span>
+            <h3>Tahiniemi–Länsiväylä osayleiskaavamuutos</h3>
+            <p class="project-kunta">Pieksämäki</p>
+            <p class="project-desc">Tahiniemi-Länsiväylä-alueen yleiskaavan muutos. Kaava on lainvoimainen.</p>
+            <span class="status-badge status-lainvoimainen">Lainvoimainen</span>
+            <span class="project-ref-link" style="margin-top:1rem;">Avaa projekti-sivusto →</span>
+          </a>
+
+          <a class="project-ref-card" href="ruotsalainen.html">
+            <span class="ref-category-label">Rantaosayleiskaava</span>
+            <h3>Ruotsalaisen rantaosayleiskaava</h3>
+            <p class="project-kunta">Asikkala</p>
+            <p class="project-desc">Ruotsalaisen alueen rantakaava. Valtuusto hyväksyi 17.11.2025.</p>
+            <span class="status-badge status-lainvoimainen">Lainvoimainen</span>
+            <span class="project-ref-link" style="margin-top:1rem;">Avaa projekti-sivusto →</span>
+          </a>
+
+          <a class="project-ref-card" href="heinitaryk.html">
+            <span class="ref-category-label">Rantayleiskaavamuutos</span>
+            <h3>Heinäveden itäisten alueiden rantayleiskaavamuutos</h3>
+            <p class="project-kunta">Heinävesi</p>
+            <p class="project-desc">Itäisten ranta-alueiden kaavamuutos. Valtuusto hyväksyi 12.5.2025.</p>
+            <span class="status-badge status-lainvoimainen">Lainvoimainen</span>
+            <span class="project-ref-link" style="margin-top:1rem;">Avaa projekti-sivusto →</span>
+          </a>
+
+          <a class="project-ref-card" href="kyrsya.html">
+            <span class="ref-category-label">Rantaosayleiskaava</span>
+            <h3>Kyrsyän rantaosayleiskaava</h3>
+            <p class="project-kunta">Sulkava</p>
+            <p class="project-desc">Noin 130 km²:n rantasuunnittelualue luoteisessa Sulkavassa. Valtuusto hyväksyi 5.5.2025.</p>
+            <span class="status-badge status-lainvoimainen">Lainvoimainen</span>
+            <span class="project-ref-link" style="margin-top:1rem;">Avaa projekti-sivusto →</span>
+          </a>
+
+          <a class="project-ref-card" href="suursaimaa.html">
+            <span class="ref-category-label">Osayleiskaava</span>
+            <h3>Suur-Saimaan osayleiskaava</h3>
+            <p class="project-kunta">Taipalsaari</p>
+            <p class="project-desc">Noin 270 km²:n suunnittelualue Suur-Saimaalla. Kaavaehdotus nähtävillä loppuun 31.1.2026.</p>
+            <span class="status-badge" style="background:rgba(15,158,213,0.12);color:#0e6fa0;border:1px solid rgba(15,158,213,0.3);">Valmistelussa</span>
+            <span class="project-ref-link" style="margin-top:1rem;">Avaa projekti-sivusto →</span>
+          </a>
+
+          <a class="project-ref-card" href="heinlansi.html">
+            <span class="ref-category-label">Rantayleiskaavamuutos</span>
+            <h3>Heinäveden läntisten alueiden rantayleiskaavamuutos</h3>
+            <p class="project-kunta">Heinävesi</p>
+            <p class="project-desc">Läntisten ranta-alueiden kaavamuutos rakennusoikeuksien ajantasaistamiseksi. Hyväksyminen 2026 loppupuolella.</p>
+            <span class="status-badge" style="background:rgba(15,158,213,0.12);color:#0e6fa0;border:1px solid rgba(15,158,213,0.3);">Valmistelussa</span>
+            <span class="project-ref-link" style="margin-top:1rem;">Avaa projekti-sivusto →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
     <section class="section section-alt">
       <div class="container narrow" style="text-align: center;">
         <p class="section-kicker">Kiinnostuitko?</p>
@@ -115,5 +179,16 @@
       <p>© PlanDisain</p>
     </div>
   </footer>
+  <script>
+    const header = document.querySelector('.site-header');
+    const logo = document.getElementById('site-logo');
+    const hero = document.querySelector('.page-hero');
+    window.addEventListener('scroll', () => {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const overWhite = heroBottom <= header.offsetHeight;
+      header.classList.toggle('scrolled', overWhite);
+      logo.src = overWhite ? 'logo-pd.png' : 'logo-pd-transparent.png';
+    });
+  </script>
 </body>
 </html>

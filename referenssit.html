@@ -17,6 +17,7 @@
         <a href="referenssit.html" aria-current="page">Referenssit</a>
         <a href="yhteystiedot.html">Yhteystiedot</a>
       </nav>
+      <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -56,11 +57,8 @@
               käyttöönotosta ja määrittelystä.
             </p>
             <ul class="ref-list">
-              <li>Kaavoitusprosessien digitaalinen kehittäminen</li>
-              <li>Tiedonhallintajärjestelmien määrittely ja käyttöönotto</li>
               <li>Kansallinen kehittämistyö kaavoituksen digitalisoinnissa</li>
               <li>Digitaalisten kaava-alustojen hyödyntäminen</li>
-              <li>Organisaatioiden digikypsyyden kehittäminen</li>
             </ul>
           </div>
 
@@ -75,9 +73,6 @@
             <ul class="ref-list">
               <li>Digitaaliset osallistumisalustat kaavahankkeissa</li>
               <li>Asukaskyselyt ja palautekoosteet</li>
-              <li>Vuorovaikutussuunnitelmat eri kaavatasoille</li>
-              <li>Viranomaisyhteistyön koordinointi</li>
-              <li>Havainnolliset esittelymateriaalit sidosryhmille</li>
             </ul>
           </div>
 
@@ -88,8 +83,7 @@
     <section class="section">
       <div class="container">
         <div class="section-heading">
-          <p class="section-kicker">Projekti-sivustot</p>
-          <h2>Valmistuneet yleiskaavahankkeet</h2>
+<h2>Viimeisimmät yleiskaavahankkeet</h2>
         </div>
 
         <div class="project-ref-grid">
@@ -161,17 +155,6 @@
       </div>
     </section>
 
-    <section class="section section-alt">
-      <div class="container narrow" style="text-align: center;">
-        <p class="section-kicker">Kiinnostuitko?</p>
-        <h2>Kerro meille projektistasi</h2>
-        <p style="color: var(--color-text-soft); margin-bottom: var(--space-5);">
-          Jokaiseen hankkeeseen räätälöidään sopiva palvelukokonaisuus.
-          Ota yhteyttä ja kerrotaan lisää.
-        </p>
-        <a class="button-secondary" href="yhteystiedot.html">Ota yhteyttä</a>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -181,13 +164,25 @@
   </footer>
   <script>
     const header = document.querySelector('.site-header');
-    const logo = document.getElementById('site-logo');
     const hero = document.querySelector('.page-hero');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.site-header')) {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', false);
+      }
+    });
     window.addEventListener('scroll', () => {
       const heroBottom = hero.getBoundingClientRect().bottom;
       const overWhite = heroBottom <= header.offsetHeight;
       header.classList.toggle('scrolled', overWhite);
-      logo.src = overWhite ? 'logo-pd.png' : 'logo-pd-transparent.png';
     });
   </script>
 </body>

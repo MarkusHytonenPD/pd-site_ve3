@@ -17,6 +17,7 @@
         <a href="referenssit.html">Referenssit</a>
         <a href="yhteystiedot.html" aria-current="page">Yhteystiedot</a>
       </nav>
+      <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -64,13 +65,25 @@
   </footer>
   <script>
     const header = document.querySelector('.site-header');
-    const logo = document.getElementById('site-logo');
     const hero = document.querySelector('.page-hero');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.site-header')) {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', false);
+      }
+    });
     window.addEventListener('scroll', () => {
       const heroBottom = hero.getBoundingClientRect().bottom;
       const overWhite = heroBottom <= header.offsetHeight;
       header.classList.toggle('scrolled', overWhite);
-      logo.src = overWhite ? 'logo-pd.png' : 'logo-pd-transparent.png';
     });
   </script>
 </body>

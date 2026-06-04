@@ -70,9 +70,10 @@ a {
 }
 
 .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  background:
+    linear-gradient(180deg, rgba(14, 40, 65, 0.55), rgba(14, 40, 65, 0.65)),
+    url('hero-koivikko.png') center bottom / cover no-repeat;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .header-inner {
@@ -105,7 +106,7 @@ a {
 
 .main-nav a {
   text-decoration: none;
-  color: #3cc3cd;
+  color: #ffffff;
   font-weight: 500;
   font-size: 0.98rem;
 }
@@ -116,10 +117,14 @@ a {
   text-underline-offset: 4px;
 }
 
+.nav-toggle {
+  display: none;
+}
+
 .hero {
   background:
     linear-gradient(180deg, rgba(14, 40, 65, 0.55), rgba(14, 40, 65, 0.65)),
-    url('hero-koivikko.png') center 62% / cover no-repeat;
+    url('hero-koivikko.png') center 95% / cover no-repeat;
   color: #fff;
   padding: calc(4rem + 76px) 0 6rem;
   position: relative;
@@ -347,13 +352,13 @@ a {
 }
 
 .footer-inner {
-  min-height: 340px;
+  min-height: 238px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
   gap: var(--space-5);
-  padding: var(--space-8) 0;
+  padding: var(--space-6) 0;
   text-align: right;
 }
 
@@ -401,16 +406,60 @@ a {
 }
 
 @media (max-width: 760px) {
-  .header-inner {
+  .nav-toggle {
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: center;
-    padding: 0.9rem 0;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .header-inner {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
   }
 
   .main-nav {
-    flex-wrap: wrap;
-    gap: 0.8rem 1rem;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(14, 40, 65, 0.97);
+    padding: 1rem 1.5rem 1.5rem;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .main-nav.open {
+    display: flex;
   }
 
   .hero {
@@ -664,7 +713,7 @@ a {
 .page-hero {
   background:
     linear-gradient(180deg, rgba(14, 40, 65, 0.60), rgba(14, 40, 65, 0.70)),
-    url('hero-koivikko.png') center 62% / cover no-repeat;
+    url('hero-koivikko.png') center 95% / cover no-repeat;
   color: #fff;
   padding: calc(4.5rem + 76px) 0 3.5rem;
   margin-top: -76px;

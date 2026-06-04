@@ -20,11 +20,12 @@
         <a href="referenssit.html">Referenssit</a>
         <a href="yhteystiedot.html">Yhteystiedot</a>
       </nav>
+      <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </header>
 
   <main>
-    <section class="page-hero">
+    <section class="page-hero" style="background: linear-gradient(180deg, rgba(14, 40, 65, 0.60), rgba(14, 40, 65, 0.70)), url('hero-heinavesi.png') center 95% / cover no-repeat;">
       <div class="container">
         <p class="eyebrow">Projekti · Heinävesi</p>
         <h1>Heinäveden läntisten alueiden rantayleiskaavamuutos</h1>
@@ -237,13 +238,25 @@
 
   <script>
     const header = document.querySelector('.site-header');
-    const logo = document.getElementById('site-logo');
     const hero = document.querySelector('.page-hero');
+    const navToggle = document.querySelector('.nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    navToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.site-header')) {
+        mainNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', false);
+      }
+    });
     window.addEventListener('scroll', () => {
       const heroBottom = hero.getBoundingClientRect().bottom;
       const overWhite = heroBottom <= header.offsetHeight;
       header.classList.toggle('scrolled', overWhite);
-      logo.src = overWhite ? 'logo-pd.png' : 'logo-pd-transparent.png';
     });
   </script>
 </body>
